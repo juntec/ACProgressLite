@@ -50,10 +50,12 @@ public class ACProgressFlower extends ACProgressBaseDialog {
             @Override
             public void run() {
                 int result = mSpinCount % mBuilder.mPetalCount;
-                if (mBuilder.mDirection == ACProgressConstant.DIRECT_CLOCKWISE) {
-                    mFlowerView.updateFocusIndex(result);
-                } else {
-                    mFlowerView.updateFocusIndex(mBuilder.mPetalCount - 1 - result);
+                if (mFlowerView != null) {
+                    if (mBuilder.mDirection == ACProgressConstant.DIRECT_CLOCKWISE) {
+                        mFlowerView.updateFocusIndex(result);
+                    } else {
+                        mFlowerView.updateFocusIndex(mBuilder.mPetalCount - 1 - result);
+                    }
                 }
                 if (result == 0) {
                     mSpinCount = 1;
